@@ -6,7 +6,7 @@ function AddDetails(props) {
       <h1 className="text-slate-50 text-2xl font-semibold pb-4">
         Add your personal details:
       </h1>
-      <div className="grid grid-cols-2 gap-x-6 gap-y-4 w-100">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-2 md:gap-x-4 lg:gap-x-4 gap-y-2 md:gap-y-4 lg:gap-y-4 w-64 md:w-96 lg:w-96">
         <label className="font-semibold text-gray-300 text-lg">
           Enter your Name:
         </label>

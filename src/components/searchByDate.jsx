@@ -7,7 +7,7 @@ function SearchByDate(props) {
         Search Birthday matches:
       </h1>
       <div className="grid gap-4 w-48">
-        <label className="font-semibold text-gray-300 text-lg">
+        <label className="font-semibold text-gray-300 text-lg text-center">
           Enter any date:
         </label>
         <input

@@ -11,8 +11,8 @@ function Results() {
   ];
 
   return (
-    <div className="w-full text-center mt-8">
-      <h1 className="text-slate-50 text-2xl font-semibold pb-4">Results:</h1>
+    <div className="w-full text-center mt-4">
+      <h1 className="text-slate-50 text-3xl font-semibold pb-4">Results:</h1>
       <div className="flex gap-4 flex-wrap justify-center">
         {resluts.map((res, index) => {
           const bgColor = colors[Math.floor(Math.random() * colors.length)];
