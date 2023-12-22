@@ -3,6 +3,7 @@ import { Contract, networks } from "who-do-i-share-my-birthday-with";
 import { formatDate } from "./utils";
 import { isConnected, getPublicKey } from "@stellar/freighter-api";
 
+// Function to get the public key if connected
 let addressLookup = (async () => {
   if (await isConnected()) return getPublicKey();
 })();
@@ -14,10 +15,12 @@ const birthdayContract = new Contract({
 });
 
 function AddDetails() {
+  // State hooks for address, name, and birth date
   const [address, setAddress] = useState(undefined);
   const [name, setName] = useState("");
   const [birthDate, setBirthDate] = useState("");
 
+  // Effect hook to retrieve the user's address
   useEffect(() => {
     if (address !== undefined) return;
 
@@ -26,6 +29,7 @@ function AddDetails() {
     });
   }, [address]);
 
+  // Handler function for adding details
   const handleAddDetails = () => {
     const formattedDate = formatDate(birthDate);
     birthdayContract
@@ -48,12 +52,14 @@ function AddDetails() {
       });
   };
 
+  // JSX for rendering the component
   return (
     <div className="flex flex-col w-full items-center mt-60">
       <h1 className="text-slate-50 text-2xl font-semibold pb-4">
         Add your personal details:
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-x-2 md:gap-x-4 lg:gap-x-4 gap-y-2 md:gap-y-4 lg:gap-y-4 w-64 md:w-96 lg:w-96">
+        {/* Input fields for name and birth date */}
         <label className="font-semibold text-gray-300 text-lg">
           Enter your Name:
         </label>
@@ -74,6 +80,7 @@ function AddDetails() {
           onChange={(e) => setBirthDate(e.target.value)}
         />
       </div>
+      {/* Button to submit details */}
       <button
         onClick={handleAddDetails}
         className="bg-[#5e6ad2]/80 text-white p-2 mt-4 w-24 rounded-lg hover:bg-[#5e6ad2] cursor-pointer font-medium"
