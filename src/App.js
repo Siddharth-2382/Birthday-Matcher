@@ -3,7 +3,7 @@ import Main from "./components/main";
 
 function App() {
   return (
-    <div className="mx-24 mt-16 flex flex-col items-center">
+    <div className="mx-24 my-16 flex flex-col items-center">
       <Heading />
       <Main />
     </div>
