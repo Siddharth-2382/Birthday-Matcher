@@ -1,25 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
+import { formatDate } from "./utils";
 
-function SearchByDate(props) {
+function SearchByDate({ setSearch }) {
+  const [date, setDate] = useState("");
+
+  const handleSearchClick = () => {
+    if (date) {
+      const formattedDate = formatDate(date);
+      setSearch(formattedDate);
+    }
+  };
+
   return (
     <div className="flex flex-col items-center">
-      <h1 className="text-slate-50 text-2xl font-semibold">
-        Search Birthday matches:
-      </h1>
       <div className="grid gap-4 w-48">
-        <label className="font-semibold text-gray-300 text-lg text-center">
-          Enter any date:
-        </label>
         <input
           type="date"
-          placeholder="Your name..."
+          value={date}
+          onChange={(e) => setDate(e.target.value)}
           className="focus:border-[#5e6ad2] focus:outline-none border rounded-lg p-1 cursor-pointer"
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSearchClick();
+            }
+          }}
         />
         <button
-          onClick={props.handleRegularSearch}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSearchClick();
+            }
+          }}
+          onClick={handleSearchClick}
           className="bg-[#5e6ad2]/80 text-white p-2 rounded-lg hover:bg-[#5e6ad2] cursor-pointer font-medium"
         >
-          Search
+          Find Out!
         </button>
       </div>
     </div>
